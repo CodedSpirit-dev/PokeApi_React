@@ -42,4 +42,15 @@ const getPokemonDataFromDB = async (pokemonNameOrId) => {
     }
 }
 
-export { fetchPokemonData, fetchPokemons, releasePokemon, getPokemonDataFromDB };
+const updatePokemonDataInDB = async (pokemonNameOrId) => {
+    try {
+        const response = await axios.put(`http://localhost:8000/update_pokemon_data_in_db/${pokemonNameOrId}/`);
+        return response.data;
+    } catch (error) {
+        console.error('Error updating Pokemon data:', error);
+        throw error;
+    }
+
+}
+
+export { fetchPokemonData, fetchPokemons, releasePokemon, getPokemonDataFromDB, updatePokemonDataInDB };
