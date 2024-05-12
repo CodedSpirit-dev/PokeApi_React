@@ -32,7 +32,9 @@ export const Home = () => {
                 <Link to={"/addpokemon"}>
                     <button>Add my own Pokémon</button>
                 </Link>
-                <button>Edit a Pokémon</button>
+                <Link to={"/editpokemon"}>
+                    <button>Edit a Pokémon</button>
+                </Link>
                 <Link to={"/releasepokemon"}>
                     <button>Delete a Pokémon</button>
                 </Link>

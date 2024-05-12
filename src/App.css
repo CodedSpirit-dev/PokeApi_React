@@ -45,7 +45,9 @@ p{
 .pokemonCard {
   text-transform: capitalize;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 1rem;
   border-radius: 8px;
   text-decoration: none;

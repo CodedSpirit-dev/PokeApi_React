@@ -32,4 +32,14 @@ const releasePokemon = async (pokemonIdOrName) => {
     }
 };
 
-export { fetchPokemonData, fetchPokemons, releasePokemon };
+const getPokemonDataFromDB = async (pokemonNameOrId) => {
+    try {
+        const response = await axios.get(`http://localhost:8000/get_pokemon_data_from_db/${pokemonNameOrId}/`);
+        return response.data; // The Pokemon data
+    } catch (error) {
+        console.error('Error fetching Pokemon data:', error);
+        throw error;
+    }
+}
+
+export { fetchPokemonData, fetchPokemons, releasePokemon, getPokemonDataFromDB };

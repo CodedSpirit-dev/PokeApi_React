@@ -17,6 +17,7 @@ function App() {
                 <Route path="/addpokemon" element={<AddCustomPokemon />} />
                 <Route path="/fetchpokemondata" element={<FetchPokemonData/>} />
                 <Route path="/pokemon/:pokemonId" element={<PokemonDetail />} />
+                <Route path={"/editpokemon"} element={<FetchPokemonData />} />
                 <Route path={"/releasepokemon"} element={<ReleasePokemon />} />
             </Routes>
         </>
