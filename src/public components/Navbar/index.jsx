@@ -1,18 +1,26 @@
-// eslint-disable-next-line no-unused-vars
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 import styles from './styles.module.css';
 
-export const Navbar = () => {
+const Navbar=()=>{
     return (
-        <nav className={styles.navbar}>
-            <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Contact</li>
-            </ul>
-        </nav>
-    );
-};
+        <div className={styles.navBar}>
+            <div className='home'>
+                <Link to="/">Inicio</Link>
+            </div>
+            <div className='statscalculator'>
+                <Link to="/statscalculator">Calculadora de Stats</Link>
+            </div>
+            <div className='editapokemons'>
+                <Link to="/editapokemons">Editapokemon</Link>
+            </div>
+            <div className='fetchpokemondata'>
+                <Link to="/fetchpokemondata">Busca a un Pokemon</Link>
+            </div>
+        </div>
+    )
+
+}
 
 export default Navbar;

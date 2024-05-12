@@ -40,3 +40,60 @@
 .read-the-docs {
   color: #888;
 }
+
+.pokemonCard {
+  width: 400px;
+  padding-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: capitalize;
+  margin: 0.5rem;
+
+  .pokemonName {
+    font-size: 30px;
+    font-weight: bolder;
+    text-align: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+  .pokemonTypeCard{
+    display: flex;
+    align-items: normal;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+  }
+
+  .pokemon_id {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  img {
+    width: 90%;
+    height: 140px;
+    object-fit: contain;
+    align-self: center;
+    padding: 0.5rem 1rem;
+  }
+}
+.pokemonCard:hover {
+  box-shadow: -1px 10px 30px -15px rgba(0, 0, 0, 0.65);
+  -webkit-box-shadow: -1px 10px 30px -15px rgba(0, 0, 0, 0.65);
+  -moz-box-shadow: -1px 10px 30px -15px rgba(0, 0, 0, 0.65);
+  transition-duration: 0.3s;
+}
+
+.searchInput {
+  border-radius: 8px;
+  border: 1px solid #000;
+  margin: 1rem 0;
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 30px;
+}
+
