@@ -12,3 +12,15 @@ const fetchPokemonData = async (pokemonNameOrId) => {
 }
 
 export { fetchPokemonData };
+
+const getAllPokemonsInDatabase = async () => {
+    try {
+        const response = await axios.get('http://localhost:8000/get_list_of_pokemon_saved_in_db/');
+        return response.data; // The Pokemon data
+    } catch (error) {
+        console.error('Error fetching Pokemon data:', error);
+        throw error;
+    }
+}
+
+export { getAllPokemonsInDatabase };

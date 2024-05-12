@@ -1,0 +1,13 @@
+.headerMain{
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 20px;
+  border-bottom: 1px solid #e1e1e1;
+
+    button{
+        cursor: pointer;
+        font-size: 1.3rem;
+        margin: 0.3rem 0.5rem;
+        flex-direction: column;
+    }
+}

@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { fetchPokemonData } from "../../service/api.js";
+import { background } from "../../utils/colorsByPokemonType.js";
+
+
 
 import styles from './styles.module.css';
 
 export const FetchPokemonData = () => {
     const [pokemonData, setPokemonData] = useState(null);
     const [searchQuery, setSearchQuery] = useState('');
+
+    const colorSelected = background[pokemonData?.types[0]];
 
     const handleSubmit = (e) => {
         e.preventDefault(); // Prevent default form submission
@@ -19,7 +24,7 @@ export const FetchPokemonData = () => {
     return (
         <>
             <div>
-                <h1>Home</h1>
+                <h1>Search for a Pokemon</h1>
             </div>
             <form onSubmit={handleSubmit}>
                 <input
@@ -31,15 +36,26 @@ export const FetchPokemonData = () => {
                 />
                 <button type="submit">Buscar</button>
             </form>
-            <div className='pokemonCard'>
-                <h2 className='pokemonName'>{pokemonData?.name}</h2>
-                <span className='pokemon_id'>{pokemonData?.pokemon_id}</span>
-                {pokemonData?.types?.map((type, index) => (
-                    <h2 key={index} className='pokemonTypeCard'>{type}</h2>
-                ))}
-                <h3>{pokemonData?.score}</h3>
-                <img src={pokemonData?.sprite_url} alt={pokemonData?.name}/>
-            </div>
+            {pokemonData && (
+                <div>
+                    <div style={{background: colorSelected}} className='pokemonCard'>
+                        <img src={pokemonData.sprite_url} alt={pokemonData.name}/>
+                        <h2 className='pokemonName'>Name: {pokemonData.name}</h2>
+                        <h2 className='pokemonId'>ID: {pokemonData.pokemon_id}</h2>
+                        <div className='pokemonTypesContainer'>
+                            <h2>Types:</h2>
+                            {pokemonData.types?.map((type, index) => (
+                                <div key={index} className='pokemonType'>
+                                    <h2>{type}</h2>
+                                </div>
+                            ))}
+                        </div>
+                        <h2 className='pokemonScore'>This Pokemon have a score of: {pokemonData.score}</h2>
+                    </div>
+                    <h3 >This pokemon is now in the Database</h3>
+                </div>
+            )
+            }
         </>
     );
 }
