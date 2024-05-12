@@ -11,16 +11,25 @@ const fetchPokemonData = async (pokemonNameOrId) => {
     }
 }
 
-export { fetchPokemonData };
-
-const getAllPokemonsInDatabase = async () => {
+const fetchPokemons = async () => {
     try {
         const response = await axios.get('http://localhost:8000/get_list_of_pokemon_saved_in_db/');
-        return response.data; // The Pokemon data
+        return response.data.sort((a, b) => parseInt(a.pokemon_id) - parseInt(b.pokemon_id));
     } catch (error) {
         console.error('Error fetching Pokemon data:', error);
+        throw error; // Rethrow the error to handle it in the component
+    }
+};
+
+// Add to src/service/api.js
+
+const releasePokemon = async (pokemonIdOrName) => {
+    try {
+        const response = await axios.delete(`http://localhost:8000/delete_pokemon_data_from_db/${pokemonIdOrName}/`);
+        return response;
+    } catch (error) {
         throw error;
     }
-}
+};
 
-export { getAllPokemonsInDatabase };
+export { fetchPokemonData, fetchPokemons, releasePokemon };

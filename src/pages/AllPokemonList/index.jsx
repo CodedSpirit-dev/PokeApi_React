@@ -40,6 +40,7 @@ const AllPokemonList = () => {
                             <h2 className={styles.pokemonName}>{pokemon.name}</h2>
                             <img src={pokemon.sprite_url} alt={pokemon.name} />
                             <span className={styles.pokemonId}>ID: {pokemon.pokemon_id}</span>
+                            {/* Render other pokemon details as needed */}
                         </div>
                     </Link>
                 );

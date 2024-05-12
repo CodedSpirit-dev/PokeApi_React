@@ -4,7 +4,8 @@ import {StatsCalculator} from "./pages/index.js";
 import {Route, Routes} from "react-router-dom";
 import PokemonDetail from "./pages/PokemonDetail/index.jsx";
 import Header from "./public components/Header/index.jsx";
-import DeleteAllPokemon from "./pages/DeleteAllPokemon/index.jsx";
+import ReleasePokemon from "./pages/DeletePokemon/index.jsx";
+import AddCustomPokemon from "./pages/AddCustomPokemon/index.jsx";
 
 function App() {
     return (
@@ -13,10 +14,10 @@ function App() {
             <Routes>
                 <Route path="*" element={<Home />} />
                 <Route path="/statscalculator" element={<StatsCalculator />} />
-                <Route path="/editapokemons" element={<div>Cart</div>} />
+                <Route path="/addpokemon" element={<AddCustomPokemon />} />
                 <Route path="/fetchpokemondata" element={<FetchPokemonData/>} />
                 <Route path="/pokemon/:pokemonId" element={<PokemonDetail />} />
-                <Route path={"/deleteallpokemon"} element={<DeleteAllPokemon />} />
+                <Route path={"/releasepokemon"} element={<ReleasePokemon />} />
             </Routes>
         </>
     );

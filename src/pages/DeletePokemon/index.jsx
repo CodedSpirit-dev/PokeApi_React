@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+// Modify src/pages/DeletePokemon/index.jsx
 
-const DeleteAllPokemon = () => {
+import React, { useState } from 'react';
+import { releasePokemon } from '../../service/api'; // Adjust the import path as necessary
+
+const ReleasePokemon = () => {
     const [pokemonIdOrName, setPokemonIdOrName] = useState('');
 
     const handleInputChange = (e) => {
@@ -11,18 +13,18 @@ const DeleteAllPokemon = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.delete(`http://localhost:8000/delete_pokemon_data_from_db/${pokemonIdOrName}/`);
-            alert('Pokémon deleted successfully.');
+            await releasePokemon(pokemonIdOrName);
+            alert('Pokémon released successfully.');
         } catch (error) {
-            console.error('Error deleting Pokémon:', error);
-            alert('Failed to delete Pokémon.');
+            console.error('Error releasing Pokémon:', error);
+            alert('Failed to release Pokémon.');
         }
     };
 
     return (
         <div>
-            <h1>Delete a Pokémon</h1>
-            <p>This will delete one Pokémon from the database.</p>
+            <h1>Release a Pokémon</h1>
+            <p>This will release one Pokémon from the database.</p>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -31,10 +33,10 @@ const DeleteAllPokemon = () => {
                     value={pokemonIdOrName}
                     onChange={handleInputChange}
                 />
-                <button type="submit">Delete</button>
+                <button type="submit">Release</button>
             </form>
         </div>
     );
 };
 
-export default DeleteAllPokemon;
+export default ReleasePokemon;
