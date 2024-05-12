@@ -1,32 +1,18 @@
-import { useState, useEffect, forwardRef, useImperativeHandle } from "react";
+// eslint-disable-next-line no-unused-vars
+import React from 'react';
 
-/**
- * Component that represents the Navbar of the application.
- */
-const Navbar = () => {
+import styles from './styles.module.css';
 
+export const Navbar = () => {
     return (
-        <div ref={ref} className="navbar">
-            <div>
-                <h1 className="navbar-title">Busqueda de eventos</h1>
-            </div>
-            <div className="navbar-search">
-                <input type="text" placeholder="Buscar eventos"
-                       onChange={handleInputChange}
-                       onKeyDown={handleInputKeyDown}
-                       value={search}
-                       className="navbar-search-input"
-                />
-                <Link to="/profile/my-info" style={{
-                    marginLeft: 10,
-                    color: "#213547",
-                    textDecoration: "none",
-                }}>Mi perfil</Link>
-            </div>
-        </div>
+        <nav className={styles.navbar}>
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+        </nav>
     );
 };
-
-Navbar.displayName = "Navbar";
 
 export default Navbar;
