@@ -38,7 +38,6 @@ export const Home = () => {
                 <Link to={"/releasepokemon"}>
                     <button>Delete a Pokémon</button>
                 </Link>
-                <button>Calculate a Pokémon score</button>
             </header>
             {pokemonData && pokemonData.length > 0 ? <AllPokemonList /> : <div className={styles.emptyPokedex}><h2>Search Pokemons to fill your Pokedex</h2></div>}
         </>
