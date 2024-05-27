@@ -13,7 +13,7 @@ const AllPokemonList = () => {
     useEffect(() => {
         const fetchPokemons = async () => {
             try {
-                const response = await axios.get('http://localhost:8000/get_list_of_pokemon_saved_in_db/');
+                const response = await axios.get('http://localhost:8000/list_all/');
                 const sortedData = response.data.sort((a, b) => parseInt(a.pokemon_id) - parseInt(b.pokemon_id));
                 setPokemons(sortedData);
                 setLoading(false);

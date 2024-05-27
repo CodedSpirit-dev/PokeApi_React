@@ -67,7 +67,7 @@ const AddCustomPokemon = () => {
                 sprite_url: pokemonData.sprite_url
             };
 
-            const response = await axios.post('http://localhost:8000/add_custom_pokemon_data/', formattedData);
+            const response = await axios.post('http://localhost:8000/pokemon/add_custom/', formattedData);
             setResponseMessage('Custom Pokémon added successfully!');
             console.log(response.data); // For debugging purposes
         } catch (error) {

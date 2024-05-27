@@ -21,7 +21,7 @@ const PokemonDetail = () => {
     useEffect(() => {
         const fetchPokemonDetails = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/get_pokemon_data_from_db/${pokemonId}/`);
+                const response = await axios.get(`http://localhost:8000/pokemon/get/${pokemonId}/`);
                 setPokemonData(response.data);
             } catch (error) {
                 console.error('Error fetching Pokemon details:', error);

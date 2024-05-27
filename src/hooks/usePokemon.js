@@ -10,7 +10,7 @@ export const usePokemon = (url, id) => {
             setPokemon(data);
         } else if (id) {
             const { data } = await axios.get(
-                `http://localhost:8000/get_pokemon_data_from_db/${id}/`
+                `http://localhost:8000/pokemon/get/${id}/`
             );
             setPokemon(data);
         }
